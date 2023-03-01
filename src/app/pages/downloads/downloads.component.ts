@@ -1,11 +1,9 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { fadeInOutAnimation } from '../../animations/route-transition';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
-  animations: [fadeInOutAnimation]
+  selector: 'app-download',
+  templateUrl: './downloads.component.html',
+  styleUrls: ['./downloads.component.css'],
 })
 export class DashboardComponent implements OnInit {
   show = true

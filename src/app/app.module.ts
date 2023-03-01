@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { DashboardComponent } from './pages/downloads/downloads.component';
 import { AlertsComponent } from './components/alerts/alerts.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { BadgesComponent } from './components/badges/badges.component';
@@ -41,6 +41,8 @@ import { PagesBlankComponent } from './pages/pages-blank/pages-blank.component';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ValidateComponent } from './pages/validate/validate.component';
+import { HistoryComponent } from './pages/history/history.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +81,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PagesRegisterComponent,
     PagesLoginComponent,
     PagesError404Component,
-    PagesBlankComponent
+    PagesBlankComponent,
   ],
   imports: [
     BrowserModule,
