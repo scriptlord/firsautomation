@@ -1,0 +1,13 @@
+.p-button {
+    background: #61297F;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.p-button:enabled:hover {
+    background: #9262ac;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}

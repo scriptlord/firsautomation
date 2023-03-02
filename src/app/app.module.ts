@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
+import { UploadModule } from './pages/upload/upload.module';
 import { AlertsComponent } from './components/alerts/alerts.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { BadgesComponent } from './components/badges/badges.component';
@@ -56,6 +57,7 @@ import { CalendarModule } from 'primeng/calendar';
   ],
   imports: [
     BrowserModule,
+    UploadModule,
     HttpClientModule,
     FormsModule,
     TableModule,
