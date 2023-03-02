@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
-import { DashboardComponent } from './pages/downloads/downloads.component';
 import { AlertsComponent } from './components/alerts/alerts.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { BadgesComponent } from './components/badges/badges.component';
@@ -38,57 +37,33 @@ import { PagesRegisterComponent } from './pages/pages-register/pages-register.co
 import { PagesLoginComponent } from './pages/pages-login/pages-login.component';
 import { PagesError404Component } from './pages/pages-error404/pages-error404.component';
 import { PagesBlankComponent } from './pages/pages-blank/pages-blank.component';
-
-
+import { FormsModule } from '@angular/forms';
+import {TableModule} from 'primeng/table';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ValidateComponent } from './pages/validate/validate.component';
-import { HistoryComponent } from './pages/history/history.component';
+import { ValidateService } from './services/validate/validate.sevice';
+import { DownloadsComponent } from './pages/downloads/downloads.component';
+import { HistoryService } from './services/history/history.service';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DownloadsComponent,
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    DashboardComponent,
-    AlertsComponent,
-    AccordionComponent,
-    BadgesComponent,
-    BreadcrumbsComponent,
-    ButtonsComponent,
-    CardsComponent,
-    CarouselComponent,
-    ListGroupComponent,
-    ModalComponent,
-    TabsComponent,
-    PaginationComponent,
-    ProgressComponent,
-    SpinnersComponent,
-    TooltipsComponent,
-    FormsElementsComponent,
-    FormsLayoutsComponent,
-    FormsEditorsComponent,
-    TablesGeneralComponent,
-    TablesDataComponent,
-    ChartsChartjsComponent,
-    ChartsApexchartsComponent,
-    IconsBootstrapComponent,
-    IconsRemixComponent,
-    IconsBoxiconsComponent,
-    UsersProfileComponent,
-    PagesFaqComponent,
-    PagesContactComponent,
-    PagesRegisterComponent,
-    PagesLoginComponent,
-    PagesError404Component,
-    PagesBlankComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    TableModule,
+    CalendarModule,
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ValidateService, HistoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

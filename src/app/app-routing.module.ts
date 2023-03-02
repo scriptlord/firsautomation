@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './pages/downloads/downloads.component';
+import { DownloadsComponent } from './pages/downloads/downloads.component';
+import {TableModule} from 'primeng/table';
 import { HistoryModule } from './pages/history/history.module';
+
 import { ValidateModule } from './pages/validate/validate.module';
 
 
 
 const routes: Routes = [
-  { path: '', 
-  component: DashboardComponent 
-  },
+  
   { 
-    path: 'dashboard', 
-    component: DashboardComponent, data: { state: 'dashboard' } 
+    path: 'download', 
+    component: DownloadsComponent, data: { state: 'dashboard' } 
   },
   {  
     path: 'validate', 
@@ -29,7 +29,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes), 
     RouterModule, 
     HistoryModule, 
-    ValidateModule
+    ValidateModule,
   ],
   exports: [RouterModule]
 })

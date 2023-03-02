@@ -1,0 +1,114 @@
+
+
+.my-textarea {
+    height: 90px;
+    display: block;
+    border-radius: 5px;
+    padding-left: 40px;
+    padding-top: 20px;
+    resize: none;
+}
+.my-textarea:enabled:focus {
+    outline: none;
+}
+.my-textarea::placeholder {
+    padding-left: 80px;
+    padding-top: 6px;
+   
+    font-size: 20px;
+}
+
+section {
+    display: grid;
+}
+
+.download-btn {
+    width: 150px;
+}
+.view-btn {
+    width: 180px;
+}
+
+
+.inline {
+    display: inline;
+ 
+}
+
+.download {
+    padding-left: 150px;
+    margin-top: 8px;
+}
+
+
+.main {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-top: 150px;
+}
+
+.dropdown {
+    margin-top: 40px;
+    display: flex;
+    gap: 60px;
+}
+
+.rowone {
+    margin-top: 40px;
+    display: flex;
+    gap: 32px;
+   
+    align-items: center;
+}
+
+.rowtwo {
+    margin-top: 40px;
+    display: flex;
+    
+    
+    align-items: center;
+}
+
+@media only screen and (max-width: 855px) {
+    .my-textarea {
+        width: 700px;
+        padding-right: 30px;
+        height: 90px;
+        display: block;
+        border-radius: 5px;
+     
+    }
+    .rowone {
+        width: 750px;
+        padding-right: 40px;
+        margin-top: 40px;
+        display: flex;
+        gap: 60px;
+        padding-left: 70px;
+        align-items: center;
+    }
+
+    .download {
+        padding-left: 30px;
+        margin-top: 8px;
+    }
+
+    .view-btn {
+        width: 250px;
+    }
+
+}
+
+.p-button {
+    background: #61297F;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.p-button:enabled:hover {
+    background: #9262ac;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
