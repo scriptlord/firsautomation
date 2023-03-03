@@ -12,6 +12,7 @@ import {trigger, animate, style, group, animateChild, query, stagger, transition
         group([         query(':enter', [          animate('0.9s ease-in-out', style({ opacity: 1 }))]),
           query(':leave', [
             animate('0.9s ease-in-out', style({ opacity: 0 }))]),
+            
         ])
       ])
     ])

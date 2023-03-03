@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
-import { UploadModule } from './pages/upload/upload.module';
+
 import { AlertsComponent } from './components/alerts/alerts.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { BadgesComponent } from './components/badges/badges.component';
@@ -41,10 +41,14 @@ import { PagesBlankComponent } from './pages/pages-blank/pages-blank.component';
 import { FormsModule } from '@angular/forms';
 import {TableModule} from 'primeng/table';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ValidateService } from './services/validate/validate.sevice';
 import { DownloadsComponent } from './pages/downloads/downloads.component';
 import { HistoryService } from './services/history/history.service';
+
+import {ProgressBarModule} from 'primeng/progressbar';
 import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
@@ -57,11 +61,13 @@ import { CalendarModule } from 'primeng/calendar';
   ],
   imports: [
     BrowserModule,
-    UploadModule,
+   
     HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1500 }),
     FormsModule,
     TableModule,
     CalendarModule,
+    ProgressBarModule,
     BrowserAnimationsModule,
     AppRoutingModule
   ],

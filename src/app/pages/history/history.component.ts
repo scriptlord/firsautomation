@@ -14,20 +14,30 @@ export class HistoryComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getHistoryLogs()
+
+    this.historyService.getHistoryData().subscribe(
+      response => {
+        console.log(response);
+        this.users = response;
+      },
+      error => {
+        console.log('Error:', error);
+      }
+    );
+   
   }
 
 
-  getHistoryLogs(){
-    this.isLoading = true
-    const getHistorySub = this.historyService.getHistoryLogs().then((data:any) => {
-      console.log(data, 'get history logs') 
-      this.users = data
-      this.isLoading = false
+  // getHistoryLogs(){
+  //   this.isLoading = true
+  //   const getHistorySub = this.historyService.getHistoryLogs().then((data:any) => {
+  //     console.log(data, 'get history logs') 
+  //     this.users = data
+  //     this.isLoading = false
 
-    }).catch((err) => {
-      console.log(err)
-    })
-  }
+  //   }).catch((err) => {
+  //     console.log(err)
+  //   })
+  // }
 
 }
