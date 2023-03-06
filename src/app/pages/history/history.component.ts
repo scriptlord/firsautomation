@@ -19,9 +19,11 @@ export class HistoryComponent implements OnInit {
       response => {
         console.log(response);
         this.users = response;
+        this.isLoading = false;
       },
       error => {
         console.log('Error:', error);
+        this.isLoading = false;
       }
     );
    

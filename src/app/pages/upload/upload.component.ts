@@ -9,15 +9,15 @@ import { TableService } from 'src/app/table.service';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
-  isLoading: boolean = false
-  users: any = []
-  tables: any = []
-  uploadLabel:string = 'Upload'
+  isLoading: boolean = true;
+  users: any = [];
+  tables: any = [];
+  uploadLabel:string = 'Upload';
   
  
-  isUpLoading:boolean=false
+  isUpLoading:boolean=false;
   
-  percentDone: number = 0
+  percentDone: number = 0;
   progress = 0;
   progressMessage = '';
   progressTotal = 500;
@@ -31,9 +31,11 @@ export class UploadComponent implements OnInit {
       response => {
         console.log(response);
         this.users = response;
+        this.isLoading = false;
       },
       error => {
         console.log('Error:', error);
+        this.isLoading = false;
       }
     );
    

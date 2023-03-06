@@ -8,8 +8,8 @@ import { TableService } from 'src/app/table.service';
   styleUrls: ['./validate.component.css']
 })
 export class ValidateComponent implements OnInit {
-  isLoading: boolean = false
-  users: any = []
+  isLoading: boolean = true;
+  users: any = [];
   constructor(
     private validateService: ValidateService,
     private tableService: TableService
@@ -20,9 +20,11 @@ export class ValidateComponent implements OnInit {
       response => {
         console.log(response);
         this.users = response;
+        this.isLoading = false;
       },
       error => {
         console.log('Error:', error);
+        this.isLoading = false;
       }
     );
     
