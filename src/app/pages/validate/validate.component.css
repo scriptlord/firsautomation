@@ -11,3 +11,12 @@
     outline: none;
     border: none;
 }
+
+:host ::ng-deep .p-datatable .p-datatable-loading-overlay  {
+    background: transparent;
+}
+
+:host ::ng-deep .pi-spinner:before{
+    color: gray;
+    font-size: 2rem
+}
