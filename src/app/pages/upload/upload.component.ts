@@ -9,7 +9,7 @@ import { TableService } from 'src/app/table.service';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
-  isLoading: boolean = false
+  isLoading: boolean = true
   users: any = []
   tables: any = []
   uploadLabel:string = 'Upload'
@@ -31,9 +31,11 @@ export class UploadComponent implements OnInit {
       response => {
         console.log(response);
         this.users = response;
+        this.isLoading = false;
       },
       error => {
         console.log('Error:', error);
+        this.isLoading = false;
       }
     );
    
