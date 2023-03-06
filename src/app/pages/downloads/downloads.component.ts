@@ -10,9 +10,13 @@ import { ValidateService } from 'src/app/services/validate/validate.sevice';
 export class DownloadsComponent implements OnInit {
   show = true
   users: any[] = []
-  isLoading:boolean=false
+  downloadLabel:string = 'Download'
   dateValue!:string
+  isLoading:boolean=false
+  isDownloadLoading:boolean=false
   newDateValue!:string
+  progress = 0;
+  progressMessage = '';
   constructor(
     private router: Router,
     private validateService:ValidateService,
@@ -38,6 +42,30 @@ export class DownloadsComponent implements OnInit {
   }
   navigateToHistory() {
     this.router.navigate(['/history']);
+  }
+
+
+
+  startDownload() {
+    this.isDownloadLoading = true
+    this.downloadLabel = 'Downloading...'
+    const progressInterval = setInterval(() => {
+      if (this.progress >= 500) {
+        clearInterval(progressInterval);
+        this.progressMessage = 'Download completed';
+        this.isDownloadLoading = false
+
+        setTimeout(() => {
+          this.progress = 0;
+          this.progressMessage = '';
+          this.downloadLabel = 'Download'
+        }, 2000);
+        return;
+      }
+      this.progress += 1;
+      this.progressMessage = `Downloading ${this.progress} of 500`;
+    }, 10);
+
   }
    
 }

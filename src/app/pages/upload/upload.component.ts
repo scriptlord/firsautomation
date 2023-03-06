@@ -73,7 +73,23 @@ export class UploadComponent implements OnInit {
   }
  
 
+  onUploadClick(event: any) {
+    const button = event.currentTarget;
+      // add your upload logic here
+   // on success:
+   button.innerHTML = '<i class="pi pi-spin pi-spinner mx-2"></i> Uploading...';
+    setTimeout(()=>{
+      button.innerHTML = '<i class="pi pi-check mx-2"></i> Upload successful';
+    }, 2000)
+  
+  setTimeout(() => {
+    button.innerHTML = '<i class="pi pi-upload mx-2"></i> Upload Table';
+    button.disabled = false;
+  }, 4000);
+
+  }
 
 
+  
 
 }

@@ -18,18 +18,17 @@
                         </div>
                      </div> -->
                      <section >
-
                            <textarea pInputTextarea placeholder="Enter Description" class="my-textarea"></textarea>
                            <div class="dropdown">
-                              <div class="d-flex align-content-center">
-                                 <label class="py-2" style="padding-right: 0.5rem; font-size: 16px;" for="">Select Month & Year: </label>
-                                 <p-calendar [(ngModel)]="dateValue" icon="pi pi-caret-down" view="month" placeholder="Select Date" dateFormat="mm/yy"></p-calendar>
-                              </div>
-                           </div>
+                              <label for="date-picker" class="mb-2">Select Month & Year:</label>
+                              <p-calendar id="date-picker" [(ngModel)]="dateValue" view="month" placeholder="Select Date" dateFormat="mm/yy"></p-calendar>
+                            </div>
                            <div class="rowone">
-                              <button pButton type="button" label="Download" class="download-btn" ></button>
+                              <button pButton type="button" label="Download" class="download-btn" (click)="startDownload()">
+                                 <i class="pi pi-spin pi-spinner mx-2" *ngIf="isDownloadLoading"></i>
+                              </button>
                               <button pButton type="button" label="View Remittance" class="view-btn" (click)="navigateToHistory()" ></button>
-                              <!-- <p class="inline download">Downloading <span>5 of 7,890,789</span></p> -->
+                              <p class="inline download">{{ progressMessage }}</p>
                            </div>
                     </section>
                   </div>
