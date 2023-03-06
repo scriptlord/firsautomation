@@ -5,6 +5,7 @@
       </div>
       <section class="section dashboard">
          <div class="row">
+            
             <div class="col-lg-12">
                <div class="row">
                   <div class="col-12">
@@ -27,11 +28,13 @@
                               </div>
                            </div>
                            <div class="rowone">
-                              <button pButton type="button" label="Download" class="download-btn" ></button>
+                             
+                              <button pButton type="button" label="Download" class="download-btn" (click)="download()" ></button>
                               <button pButton type="button" label="View Remittance" class="view-btn" (click)="navigateToHistory()" ></button>
                               <!-- <p class="inline download">Downloading <span>5 of 7,890,789</span></p> -->
                            </div>
                     </section>
+                    <!-- <p-progressBar class="mt-3" [value]="percentDone"></p-progressBar> -->
                   </div>
                </div>
             </div>

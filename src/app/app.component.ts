@@ -8,15 +8,15 @@ import {trigger, animate, style, group, animateChild, query, stagger, transition
   animations: [
     trigger('routerTransition', [
       transition('* <=> *', [    
-        query(':enter, :leave', style({ position: 'fixed', width:'100%', opacity: 0 })),
-        group([         query(':enter', [          animate('0.9s ease-in-out', style({ opacity: 1 }))]),
-          query(':leave', [
-            animate('0.9s ease-in-out', style({ opacity: 0 }))]),
-            
+        query(':enter, :leave', style({ position: 'fixed', width:'100%', opacity: 0 }), { optional: true }),
+        group([         
+          query(':enter', [ animate('0.9s ease-in-out', style({ opacity: 1 })) ], { optional: true }),
+          query(':leave', [ animate('0.9s ease-in-out', style({ opacity: 0 })) ], { optional: true })
         ])
       ])
     ])
   ]
+  
 })
 export class AppComponent {
   getState(outlet:any) {

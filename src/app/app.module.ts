@@ -63,7 +63,10 @@ import { CalendarModule } from 'primeng/calendar';
     BrowserModule,
    
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1500 }),
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService,
+      { delay: 2000 }
+    ),
     FormsModule,
     TableModule,
     CalendarModule,

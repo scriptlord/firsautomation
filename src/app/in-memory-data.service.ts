@@ -15013,7 +15013,12 @@ export class InMemoryDataService implements InMemoryDbService {
       }
     
     ];
-    return { tables, historyData };
+
+    const delayConfig = {
+      'api/tables': { delay: 5000 },
+      'api/historyData': { delay: 4000 },
+    };
+    return { tables, historyData, delayConfig };
   }
 
   constructor() { }
