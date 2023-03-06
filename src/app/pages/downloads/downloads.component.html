@@ -1,15 +1,15 @@
+<main id="main" class="main">
+   <div class="pagetitle">
+      <h1>Downloads</h1>
+   </div>
+   <section class="section dashboard">
+      <div class="row">
+         <!-- <p-progressBar  *ngIf="isDownloadLoading" [value]="percentDone"></p-progressBar> -->
 
-   <main id="main" class="main">
-      <div class="pagetitle">
-         <h1>Downloads</h1>
-      </div>
-      <section class="section dashboard">
-         <div class="row">
-            
-            <div class="col-lg-12">
-               <div class="row">
-                  <div class="col-12">
-                     <!-- <div class="card top-selling overflow-auto">
+         <div class="col-lg-12">
+            <div class="row">
+               <div class="col-12">
+                  <!-- <div class="card top-selling overflow-auto">
                         <div class="card-body pb-0">
                            <h5 class="card-title">List of Downloads <span>| Remittances</span></h5>
                            <table class="table table-borderless">
@@ -18,28 +18,31 @@
                            </table>
                         </div>
                      </div> -->
-                     <section >
+                  <section>
+                     <textarea pInputTextarea placeholder="Enter Description" class="my-textarea"></textarea>
+                     <div class="dropdown">
+                        <label for="date-picker" class="mb-2">Select Month & Year:</label>
+                        <p-calendar id="date-picker" [(ngModel)]="dateValue" view="month" placeholder="Select Date"
+                           dateFormat="mm/yy"></p-calendar>
+                     </div>
+                     <div class="rowone">
 
-                           <textarea pInputTextarea placeholder="Enter Description" class="my-textarea"></textarea>
-                           <div class="dropdown">
-                              <div class="d-flex align-content-center">
-                                 <label class="py-2" style="padding-right: 0.5rem; font-size: 16px;" for="">Select Month & Year: </label>
-                                 <p-calendar [(ngModel)]="dateValue" icon="pi pi-caret-down" view="month" placeholder="Select Date" dateFormat="mm/yy"></p-calendar>
-                              </div>
-                           </div>
-                           <div class="rowone">
-                             
-                              <button pButton type="button" label="Download" class="download-btn" (click)="download()" ></button>
-                              <button pButton type="button" label="View Remittance" class="view-btn" (click)="navigateToHistory()" ></button>
-                              <!-- <p class="inline download">Downloading <span>5 of 7,890,789</span></p> -->
-                           </div>
-                    </section>
-                    <!-- <p-progressBar class="mt-3" [value]="percentDone"></p-progressBar> -->
-                  </div>
+                        <!-- <button pButton type="button" label="Download" class="download-btn"
+                           (click)="download()">
+                        </button> -->
+                        <button pButton type="button" label="Download" class="download-btn" (click)="startDownload()">
+                           <i class="pi pi-spin pi-spinner mx-2" *ngIf="isDownloadLoading"></i>
+                        </button>
+                        <button pButton type="button" label="View Remittance" class="view-btn"
+                           (click)="navigateToHistory()"></button>
+                        <p class="inline download">{{ progressMessage }}</p>
+                     </div>
+                  </section>
+                  <!-- <p-progressBar class="mt-3" [value]="percentDone"></p-progressBar> -->
                </div>
             </div>
-           
          </div>
-      </section>
-   </main>
-   
+
+      </div>
+   </section>
+</main>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ValidateService } from 'src/app/services/validate/validate.sevice';
-import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
+
 import { TableService } from 'src/app/table.service';
 
 @Component({
@@ -12,7 +12,16 @@ export class UploadComponent implements OnInit {
   isLoading: boolean = false
   users: any = []
   tables: any = []
-  percentDone: number = 50
+  uploadLabel:string = 'Upload'
+  
+ 
+  isUpLoading:boolean=false
+  
+  percentDone: number = 0
+  progress = 0;
+  progressMessage = '';
+  progressTotal = 500;
+  
 
   constructor(private validateService: ValidateService, private tableService:TableService) { }
 
@@ -45,32 +54,32 @@ export class UploadComponent implements OnInit {
     })
   }
 
-  download(){
+  startUpload() {
+    this.isUpLoading = true
+    this.uploadLabel = 'Uploading...'
+    const progressInterval = setInterval(() => {
+      if (this.progress >= this.progressTotal) {
+        clearInterval(progressInterval);
+        this.progressMessage = 'Upload completed';
+        this.isUpLoading = false;
 
-    this.tableService.downloadTable().subscribe(result => {
-      console.log(result)
-     if (result.type === HttpEventType.DownloadProgress) {
-      console.log('hola')
-       if (result.total)
-        this.percentDone = Math.round(100 * result.loaded / result.total);
-       
- 
-       console.log(this.percentDone);
-       
-     }
-     if (result.type === HttpEventType.Response) {
-       const body = result.body;
-       if (body !== null) {
-         const file = new Blob([body], { type: 'application/zip' });
-         const fileURL = URL.createObjectURL(file);
-         console.log('hello')
-         window.open(fileURL);
-       }
-     }
-    });
- 
-   
+        setTimeout(() => {
+          this.progress = 0;
+          this.progressMessage = '';
+          this.uploadLabel = 'Upload'
+        }, 2000);
+        return;
+      }
+      this.progress += 1;
+      // this.progressMessage = `Uploading ${this.progress} of ${this.progressTotal}`;
+      this.percentDone = Math.round(100 * this.progress / this.progressTotal);
+     
+
+    }, 10);
+
   }
+
+ 
  
 
 

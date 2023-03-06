@@ -1,49 +1,47 @@
 <main id="main" class="main">
-    <!-- <div class="pagetitle">
-       <h1>Latest Uploads</h1>
-    </div> -->
+    <div class="pagetitle">
+        <h1>Upload Data</h1>
+    </div>
     <section class="section dashboard">
-       <div class="row">
-          <div class="col-lg-12">
-             <div class="row">
-                
-                <!-- <div class="progress">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    
+
+                    <!-- <p-progressBar [value]="percentDone"></p-progressBar> -->
+                    <!-- <div class="progress">
                     <div class="progress-bar" role="progressbar" [style.width.%]="percentDone" [attr.aria-valuenow]="percentDone" aria-valuemin="0" aria-valuemax="100">{{ percentDone }}%</div>
                   </div> -->
-                  
-                 <div class="d-flex justify-content-between align-item-center mb-3">
-                     <div class="d-flex gap-4 my-4">
-                        
-                         <button pButton type="button" label="Upload Table" [disabled]="false"></button>
-                         
-                          
-                        
-                         
-                         
-                     </div>
-                     
-                     
-                     <!-- <p>Total Tax Amount: XXX </p> -->
-                 </div>
+                  <!-- <p-progressBar  *ngIf="isUpLoading" [value]="percentDone"></p-progressBar> -->
+                  <p-progressBar *ngIf="isUpLoading" mode="indeterminate"></p-progressBar>
+
+                    <div class="d-flex justify-content-between align-item-center mb-3">
+                        <div class="d-flex gap-4 my-4">
+
+                            <button pButton type="button" (click)="startUpload()" label="Upload Table" [disabled]="false"></button>
+                            <p class="inline download">{{ progressMessage }}</p>
+
+
+
+
+
+                        </div>
+
+
+                        <!-- <p>Total Tax Amount: XXX </p> -->
+                    </div>
+                    <!-- <button pButton type="button" icon="pi pi-upload" iconPos="left" label="Upload Table" [disabled]="false"  (click)="onUploadClick($event)"></button> -->
+                </div>
                 <div class="col-12">
-                   <div class="card top-selling overflow-auto">
-                      <div class="card-body pb-0">
-                         <!-- <table class="table table-borderless">
+                    <div class="card top-selling overflow-auto">
+                        <div class="card-body pb-0">
+                            <!-- <table class="table table-borderless">
                          </table> -->
-                         <p-table #dt 
-                            [scrollable]="true"
-                            [scrollHeight]="'512px'"
-                            [loading]="isLoading"
-                            [value]="users"
-                            responsiveLayout="scroll"
-                            [rowHover]="true" 
-                            [paginator]="true"
-                            [rows]="12" 
-                            [scrollable]="true"
-                            [showCurrentPageReport]="true"
-                            currentPageReportTemplate="Showing page {first} of {last} pages" 
-                            [rowsPerPageOptions]="[10,25,50]"
-                            >
+                            <p-table #dt [scrollable]="true" [scrollHeight]="'512px'" [loading]="isLoading"
+                                [value]="users" responsiveLayout="scroll" [rowHover]="true" [paginator]="true"
+                                [rows]="12" [scrollable]="true" [showCurrentPageReport]="true"
+                                currentPageReportTemplate="Showing page {first} of {last} pages"
+                                [rowsPerPageOptions]="[10,25,50]">
                                 <ng-template pTemplate="loadingbody" let-columns="columns">
                                     <tr style="height:46px">
                                         <td *ngFor="let col of columns">
@@ -53,40 +51,49 @@
                                 </ng-template>
                                 <ng-template pTemplate="header" let-columns>
                                     <tr>
-                                        <th  style="width:14.29%;text-align:center;white-space: nowrap">Reference </th>
+                                        <th style="width:14.29%;text-align:center;white-space: nowrap">Reference </th>
                                         <th style="width:14.29%;text-align:center;white-space: nowrap">Description</th>
                                         <th style="width:13.29%;text-align:center;white-space: nowrap">Tax Id No</th>
                                         <th style="width:13.29%;text-align:center;white-space: nowrap">Invoice No</th>
-                                        <th style="width:17.29%;text-align:center;white-space: nowrap">Transaction Amount</th>
+                                        <th style="width:17.29%;text-align:center;white-space: nowrap">Transaction
+                                            Amount</th>
                                         <th style="width:13.29%;text-align:center;white-space: nowrap">Tax Id</th>
                                         <th style="width:14.29%;text-align:center;white-space: nowrap">Other Info</th>
                                     </tr>
                                 </ng-template>
                                 <ng-template pTemplate="body" let-user>
                                     <tr>
-                                        <td style="width:14.29%;text-align:center;white-space: nowrap">{{user.record_reference}}</td>
-                                        <td style="width:14.29%;text-align:center;white-space: nowrap">{{user.description}}</td>
-                                        <td style="width:13.29%;text-align:center;white-space: nowrap">{{user.tax_id_no}}</td>
-                                        <td style="width:13.29%;text-align:center;white-space: nowrap">{{user.invoice_no}}</td>
-                                        <td style="width:17.29%;text-align:center;white-space: nowrap">{{user.transaction_amount}}</td>
-                                        <td style="width:13.29%;text-align:center;white-space: nowrap">{{user.tax_id}}</td>
-                                        <td style="width:14.29%;text-align:center;white-space: nowrap">{{user.other_info}}</td>
+                                        <td style="width:14.29%;text-align:center;white-space: nowrap">
+                                            {{user.record_reference}}</td>
+                                        <td style="width:14.29%;text-align:center;white-space: nowrap">
+                                            {{user.description}}</td>
+                                        <td style="width:13.29%;text-align:center;white-space: nowrap">
+                                            {{user.tax_id_no}}</td>
+                                        <td style="width:13.29%;text-align:center;white-space: nowrap">
+                                            {{user.invoice_no}}</td>
+                                        <td style="width:17.29%;text-align:center;white-space: nowrap">
+                                            {{user.transaction_amount}}</td>
+                                        <td style="width:13.29%;text-align:center;white-space: nowrap">{{user.tax_id}}
+                                        </td>
+                                        <td style="width:14.29%;text-align:center;white-space: nowrap">
+                                            {{user.other_info}}</td>
                                     </tr>
                                 </ng-template>
                                 <ng-template pTemplate="emptymessage" let-user let-columns="columns">
-                                    <tr class="d-flex justify-content-center align-items-center my-4">No data found </tr>
+                                    <tr class="d-flex justify-content-center align-items-center my-4">No data found
+                                    </tr>
                                 </ng-template>
-                        </p-table>
-                      </div>
-                   </div>
+                            </p-table>
+                        </div>
+                    </div>
                 </div>
-             </div>
-          </div>
-         
-       </div>
-     
-     
+            </div>
+        </div>
 
-      
+        
+
+
+
+
     </section>
- </main>
+</main>
