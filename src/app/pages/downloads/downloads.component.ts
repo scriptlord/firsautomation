@@ -14,7 +14,7 @@ export class DownloadsComponent implements OnInit {
   users: any[] = []
   downloadLabel:string = 'Download'
   dateValue!:string
-  isLoading:boolean=false
+  isLoading:boolean=true;
   isDownloadLoading:boolean=false
   newDateValue!:string
   percentDone: number = 0

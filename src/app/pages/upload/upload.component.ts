@@ -16,6 +16,7 @@ export class UploadComponent implements OnInit {
   
  
   isUpLoading:boolean=false;
+  initialHeight: string = '200px'
   
   percentDone: number = 0;
   progress = 0;

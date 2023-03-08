@@ -9,6 +9,7 @@ import { TableService } from 'src/app/table.service';
 })
 export class ValidateComponent implements OnInit {
   isLoading: boolean = true;
+  initialHeight: string = '200px'
   users: any = [];
   constructor(
     private validateService: ValidateService,

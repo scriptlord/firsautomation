@@ -11,3 +11,20 @@
     outline: none;
     border: none;
 }
+
+:host ::ng-deep .p-datatable .p-datatable-loading-overlay  {
+    background: transparent;
+}
+
+
+
+:host ::ng-deep .pi-spinner:before{
+    color: rgb(210, 201, 201);
+    font-size: 1.9rem;
+    margin-top: 10rem;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+    padding: 0.79rem 1rem;
+    text-align: center;
+}

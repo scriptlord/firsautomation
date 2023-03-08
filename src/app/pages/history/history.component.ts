@@ -8,6 +8,7 @@ import { HistoryService } from 'src/app/services/history/history.service';
 })
 export class HistoryComponent implements OnInit {
   isLoading: boolean = true
+  initialHeight: string = '200px'
   users:any[]=[]
   constructor(
     private historyService: HistoryService
@@ -18,7 +19,7 @@ export class HistoryComponent implements OnInit {
     this.historyService.getHistoryData().subscribe(
       response => {
         console.log(response);
-        this.users = response;
+        this.users = response
         this.isLoading = false;
       },
       error => {
