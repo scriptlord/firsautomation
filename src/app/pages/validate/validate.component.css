@@ -28,3 +28,8 @@
     padding: 0.79rem 1rem;
     text-align: center;
 }
+
+.autofit{
+    height: 70vh;
+    /* object-fit: contain; */
+}

@@ -37,9 +37,9 @@
                         <div class="card-body pb-0">
                             <!-- <table class="table table-borderless">
                          </table> -->
-                            <p-table #dt [scrollable]="true"  [scrollHeight]="isLoading ? initialHeight: 'auto'"[loading]="isLoading"
+                            <p-table #dt [scrollable]="true"  [scrollHeight]="isLoading ? initialHeight: '60vh'" [loading]="isLoading"
                                 [value]="users" responsiveLayout="scroll" [rowHover]="true" [paginator]="true"
-                                [rows]="7" [scrollable]="true" [showCurrentPageReport]="true"
+                                [rows]="10" [scrollable]="true" [showCurrentPageReport]="true"
                                 currentPageReportTemplate="Showing page {first} of {last} pages"
                                 [rowsPerPageOptions]="[10,25,50]">
                                 <ng-template pTemplate="loadingbody" let-columns="columns">
