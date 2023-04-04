@@ -4,6 +4,10 @@
     outline: none;
     border: none;
 }
+section {
+    display:flex;
+    flex-direction:column
+  }
 
 .p-button:enabled:hover {
     background: #9262ac;

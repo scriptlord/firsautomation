@@ -4,7 +4,10 @@
     outline: none;
     border: none;
 }
-
+section {
+  display:flex;
+  flex-direction:column
+}
 .p-button:enabled:hover {
     background: #9262ac;
     border-radius: 5px;
@@ -28,7 +31,7 @@
 
   :host ::ng-deep .p-datatable .p-datatable-loading-overlay  {
     background: transparent;
-}
+  }
 
 :host ::ng-deep .pi-spinner:before{
     color: rgb(210, 201, 201);

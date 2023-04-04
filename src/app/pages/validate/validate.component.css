@@ -15,6 +15,10 @@
 :host ::ng-deep .p-datatable .p-datatable-loading-overlay  {
     background: transparent;
 }
+section {
+    display:flex;
+    flex-direction:column
+  }
 
 
 
